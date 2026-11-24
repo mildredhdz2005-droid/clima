@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#72b9e8">
+    <meta name="description" content="Consulta el clima actual y el pronóstico de los próximos días en tu ciudad.">
+    
+    <title>Cielo — Tu tiempo, de un vistazo</title>
+
+    <link rel="stylesheet" href="style%20(2).css">
+    <script src="script%20(1).js" defer></script>
+</head>
+
+<body>
+    <main class="contenedor">
+
+        <header class="encabezado">
+            <a class="marca" href="#" aria-label="Cielo, inicio">
+                <span class="marca-icono" aria-hidden="true">◉</span>
+                <span>cielo<span class="marca-punto">.</span></span>
+            </a>
+
+            <div class="encabezado-texto">
+                <p class="sobretitulo">EL TIEMPO, DE UN VISTAZO</p>
+                <h1>Encuentra tu cielo.</h1>
+                <p class="introduccion">Las condiciones actuales, donde estés.</p>
+            </div>
+        </header>
+
+        <form id="formulario" class="busqueda">
+            <label for="ciudad">Tu ciudad</label>
+
+            <div class="busqueda-controles">
+                <span class="busqueda-icono" aria-hidden="true">⌕</span>
+
+                <input
+                    id="ciudad"
+                    name="ciudad"
+                    type="text"
+                    placeholder="Busca una ciudad..."
+                    autocomplete="address-level2"
+                    required
+                >
+
+                <button type="submit">
+                    Consultar
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </form>
+
+        <p id="estado" class="estado" aria-live="polite"></p>
+
+        <section
+            id="resultado"
+            class="resultado"
+            aria-label="Clima actual"
+            hidden
+        >
+
+            <article class="tarjeta clima-tarjeta">
+
+                <div class="clima-encabezado">
+                    <div class="ubicacion-wrap">
+                        <span class="pin-icono" aria-hidden="true">⌖</span>
+                        <h2 id="ubicacion"></h2>
+                    </div>
+
+                    <span class="etiqueta-actual">
+                        <span></span> AHORA
+                    </span>
+                </div>
+
+                <div class="clima-principal">
+                    <div class="icono-wrap">
+                        <span id="icono" role="img" aria-label="Icono del clima"></span>
+                    </div>
+
+                    <div class="clima-resumen">
+                        <p class="ahora">AHORA</p>
+                        <p id="temperatura" class="temperatura"></p>
+                        <p id="descripcion" class="descripcion"></p>
+                    </div>
+                </div>
+
+                <div class="datos" aria-label="Detalles meteorológicos">
+
+                    <article class="dato">
+                        <span class="dato-icono" aria-hidden="true">◌</span>
+                        <div>
+                            <span class="dato-etiqueta">Humedad</span>
+                            <strong id="humedad"></strong>
+                        </div>
+                    </article>
+
+                    <article class="dato">
+                        <span class="dato-icono" aria-hidden="true">≈</span>
+                        <div>
+                            <span class="dato-etiqueta">Sensación térmica</span>
+                            <strong id="sensacion"></strong>
+                        </div>
+                    </article>
+
+                    <article class="dato">
+                        <span class="dato-icono" aria-hidden="true">↗</span>
+                        <div>
+                            <span class="dato-etiqueta">Viento</span>
+                            <strong id="viento"></strong>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p id="actualizacion" class="actualizacion"></p>
+
+            </article>
+
+            <section
+                class="tarjeta pronostico-tarjeta"
+                aria-labelledby="titulo-diario"
+            >
+                <h2 id="titulo-diario" class="titulo-seccion">
+                    <span aria-hidden="true">◷</span>
+                    PRONÓSTICO DIARIO
+                </h2>
+
+                <div
+                    id="pronostico-diario"
+                    class="pronostico-diario"
+                ></div>
+            </section>
+
+            <section
+                class="tarjeta pronostico-tarjeta diez-dias-tarjeta"
+                aria-labelledby="titulo-diez-dias"
+            >
+
+                <h2 id="titulo-diez-dias" class="titulo-seccion">
+                    PRONÓSTICO DE 10 DÍAS
+                </h2>
+
+                <div class="encabezado-pronostico" aria-hidden="true">
+                    <span>DÍA</span>
+                    <span></span>
+                    <span>MIN</span>
+                    <span>RANGO</span>
+                    <span>MÁX</span>
+                </div>
+
+                <div
+                    id="pronostico-diez-dias"
+                    class="pronostico-diez-dias"
+                ></div>
+
+            </section>
+
+        </section>
+
+        <footer>
+            <span>Un poco más cerca del cielo.</span>
+
+            <span>
+                Datos meteorológicos de
+                <a
+                    href="https://open-meteo.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >Open-Meteo</a>
+            </span>
+        </footer>
+
+    </main>
+</body>
+</html>
